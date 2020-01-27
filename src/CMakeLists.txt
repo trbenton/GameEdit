@@ -25,14 +25,11 @@ if (NOT TARGET imgui)
     add_subdirectory(imgui imgui)
 endif ()
 
-find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS})
-
-set(SOURCE_FILES "main.cpp" "imgui_impl_dx11.h" "imgui_impl_dx11.cpp" "imgui_impl_sdl.h" "imgui_impl_sdl.cpp")
+set(SOURCE_FILES "main.cpp" "imgui_impl_dx12.h" "imgui_impl_dx12.cpp" "imgui_impl_win32.h" "imgui_impl_win32.cpp")
 
 add_executable(GameEdit WIN32 ${SOURCE_FILES})
 target_link_libraries(GameEdit imgui)
-target_link_libraries(GameEdit ${SDL2_LIBRARIES})
-target_link_libraries(GameEdit d3d11.lib)
+target_link_libraries(GameEdit d3d12.lib)
+target_link_libraries(GameEdit dxgi.lib)
 
 target_include_directories(GameEdit PUBLIC imgui)
