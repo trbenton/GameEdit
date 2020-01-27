@@ -30,7 +30,7 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 set(SOURCE_FILES "main.cpp" "imgui_impl_dx11.h" "imgui_impl_dx11.cpp" "imgui_impl_sdl.h" "imgui_impl_sdl.cpp")
 
-add_executable(GameEdit ${SOURCE_FILES})
+add_executable(GameEdit WIN32 ${SOURCE_FILES})
 target_link_libraries(GameEdit imgui)
 target_link_libraries(GameEdit ${SDL2_LIBRARIES})
 target_link_libraries(GameEdit d3d11.lib)
